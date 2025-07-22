@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German Verb Conjugation Trainer</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="German Verbs">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #dbeafe 0%, #c7d2fe 100%);
+            min-height: 100vh;
+            padding: 16px;
+        }
+        
+        .container {
+            max-width: 384px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-top: 32px;
+        }
+        
+        .title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            color: #6b7280;
+        }
+        
+        .button {
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            font-size: 16px;
+        }
+        
+        .button:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .button-primary {
+            background: #6366f1;
+            color: white;
+            justify-content: center;
+        }
+        
+        .button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .icon {
+            margin-right: 12px;
+            font-size: 20px;
+        }
+        
+        .back-button {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #6b7280;
+            margin-right: 12px;
+            cursor: pointer;
+        }
+        
+        .form-group {
+            margin-bottom: 16px;
+        }
+        
+        .label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+        
+        .input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        
+        .input:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        
+        .conjugation-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .pronoun {
+            width: 64px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #6b7280;
+        }
+        
+        .button-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        
+        .button-secondary {
+            background: #e5e7eb;
+            color: #374151;
+        }
+        
+        .test-card {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .verb-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 24px;
+        }
+        
+        .pronoun-display {
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 32px;
+        }
+        
+        .answer-input {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.125rem;
+            text-align: center;
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        
+        .answer-input:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+        
+        .result-correct {
+            color: #059669;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .result-incorrect {
+            color: #dc2626;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .correct-answer {
+            font-size: 1.125rem;
+            color: #374151;
+            margin-bottom: 16px;
+        }
+        
+        .score {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+        
+        .percentage {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #6366f1;
+            margin-bottom: 16px;
+        }
+        
+        .verb-card {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 12px;
+        }
+        
+        .verb-name {
+            font-weight: bold;
+            font-size: 1.125rem;
+            color: #1f2937;
+            margin-bottom: 12px;
+        }
+        
+        .conjugations-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            font-size: 14px;
+        }
+        
+        .conjugation-item {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-top: 32px;
+        }
+        
+        .end-test {
+            font-size: 14px;
+            color: #6b7280;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .gradient-purple {
+            background: linear-gradient(135deg, #f3e8ff 0%, #e0e7ff 100%);
+        }
+        
+        .gradient-green {
+            background: linear-gradient(135deg, #ecfdf5 0%, #dbeafe 100%);
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        // Simple German Verb Conjugation App
+        class GermanVerbApp {
+            constructor() {
+                this.verbs = [
+                    {
+                        infinitive: 'sein',
+                        conjugations: {
+                            ich: 'bin',
+                            du: 'bist',
+                            er: 'ist',
+                            wir: 'sind',
+                            ihr: 'seid',
+                            sie: 'sind'
+                        }
+                    },
+                    {
+                        infinitive: 'haben',
+                        conjugations: {
+                            ich: 'habe',
+                            du: 'hast',
+                            er: 'hat',
+                            wir: 'haben',
+                            ihr: 'habt',
+                            sie: 'haben'
+                        }
+                    },
+                    {
+                        infinitive: 'gehen',
+                        conjugations: {
+                            ich: 'gehe',
+                            du: 'gehst',
+                            er: 'geht',
+                            wir: 'gehen',
+                            ihr: 'geht',
+                            sie: 'gehen'
+                        }
+                    }
+                ];
+
+                this.currentView = 'menu';
+                this.newVerb = this.getEmptyVerb();
+                this.testState = this.getEmptyTestState();
+                this.pronouns = ['ich', 'du', 'er/sie/es', 'wir', 'ihr', 'sie'];
+                this.pronounKeys = ['ich', 'du', 'er', 'wir', 'ihr', 'sie'];
+
+                this.render();
+            }
+
+            getEmptyVerb() {
+                return {
+                    infinitive: '',
+                    conjugations: {
+                        ich: '',
+                        du: '',
+                        er: '',
+                        wir: '',
+                        ihr: '',
+                        sie: ''
+                    }
+                };
+            }
+
+            getEmptyTestState() {
+                return {
+                    currentVerbIndex: 0,
+                    currentPronoun: 'ich',
+                    userAnswer: '',
+                    score: 0,
+                    totalQuestions: 0,
+                    showResult: false,
+                    isCorrect: false
+                };
+            }
+
+            setView(view) {
+                this.currentView = view;
+                this.render();
+            }
+
+            addVerb() {
+                if (this.newVerb.infinitive && Object.values(this.newVerb.conjugations).every(conj => conj.trim())) {
+                    this.verbs.push({...this.newVerb});
+                    this.newVerb = this.getEmptyVerb();
+                    this.setView('menu');
+                }
+            }
+
+            startTest() {
+                this.testState = {
+                    currentVerbIndex: Math.floor(Math.random() * this.verbs.length),
+                    currentPronoun: this.pronounKeys[Math.floor(Math.random() * this.pronounKeys.length)],
+                    userAnswer: '',
+                    score: 0,
+                    totalQuestions: 0,
+                    showResult: false,
+                    isCorrect: false
+                };
+                this.setView('test');
+            }
+
+            checkAnswer() {
+                const currentVerb = this.verbs[this.testState.currentVerbIndex];
+                const correctAnswer = currentVerb.conjugations[this.testState.currentPronoun];
+                const isCorrect = this.testState.userAnswer.toLowerCase().trim() === correctAnswer.toLowerCase();
+                
+                this.testState = {
+                    ...this.testState,
+                    isCorrect,
+                    showResult: true,
+                    score: isCorrect ? this.testState.score + 1 : this.testState.score,
+                    totalQuestions: this.testState.totalQuestions + 1
+                };
+                this.render();
+            }
+
+            nextQuestion() {
+                this.testState = {
+                    ...this.testState,
+                    currentVerbIndex: Math.floor(Math.random() * this.verbs.length),
+                    currentPronoun: this.pronounKeys[Math.floor(Math.random() * this.pronounKeys.length)],
+                    userAnswer: '',
+                    showResult: false
+                };
+                this.render();
+            }
+
+            render() {
+                const app = document.getElementById('app');
+                
+                if (this.currentView === 'menu') {
+                    app.innerHTML = this.renderMenu();
+                } else if (this.currentView === 'addVerb') {
+                    app.innerHTML = this.renderAddVerb();
+                } else if (this.currentView === 'verbs') {
+                    app.innerHTML = this.renderVerbs();
+                } else if (this.currentView === 'test') {
+                    app.innerHTML = this.renderTest();
+                } else if (this.currentView === 'results') {
+                    app.innerHTML = this.renderResults();
+                }
+
+                this.attachEventListeners();
+            }
+
+            renderMenu() {
+                return `
+                    <div class="container">
+                        <div class="header">
+                            <h1 class="title">German Verbs</h1>
+                            <p class="subtitle">Master present tense conjugation</p>
+                        </div>
+                        
+                        <button class="button" onclick="app.setView('addVerb')">
+                            <span class="icon">➕</span>
+                            <span>Add New Verb</span>
+                        </button>
+                        
+                        <button class="button" onclick="app.setView('verbs')">
+                            <div>
+                                <span class="icon">📖</span>
+                                <div style="display: inline-block;">
+                                    <div style="font-weight: 600;">View Verbs</div>
+                                    <div style="font-size: 14px; color: #6b7280;">${this.verbs.length} verbs stored</div>
+                                </div>
+                            </div>
+                        </button>
+                        
+                        <button class="button button-primary" onclick="app.startTest()" ${this.verbs.length === 0 ? 'disabled' : ''}>
+                            <span class="icon">▶️</span>
+                            <span style="font-weight: 600; font-size: 18px;">Start Test</span>
+                        </button>
+                    </div>
+                `;
+            }
+
+            renderAddVerb() {
+                return `
+                    <div class="container">
+                        <div style="display: flex; align-items: center; margin-bottom: 24px; padding-top: 16px;">
+                            <button class="back-button" onclick="app.setView('menu')">←</button>
+                            <h2 style="font-size: 1.5rem; font-weight: bold; color: #1f2937;">Add New Verb</h2>
+                        </div>
+                        
+                        <div style="background: white; border-radius: 12px; padding: 24px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
+                            <div class="form-group">
+                                <label class="label">Infinitive</label>
+                                <input type="text" class="input" value="${this.newVerb.infinitive}" 
+                                       onchange="app.updateNewVerb('infinitive', this.value)"
+                                       placeholder="e.g., machen">
+                            </div>
+                            
+                            <div style="margin-bottom: 12px;">
+                                <h3 style="font-weight: 500; color: #1f2937;">Conjugations:</h3>
+                            </div>
+                            
+                            ${this.pronounKeys.map((pronoun, index) => `
+                                <div class="conjugation-row">
+                                    <div class="pronoun">${this.pronouns[index]}</div>
+                                    <input type="text" class="input" value="${this.newVerb.conjugations[pronoun]}"
+                                           onchange="app.updateNewVerbConj('${pronoun}', this.value)"
+                                           placeholder="${this.pronouns[index]} ...">
+                                </div>
+                            `).join('')}
+                            
+                            <div class="button-row">
+                                <button class="button button-secondary" onclick="app.resetAndGoToMenu()" style="flex: 1;">Cancel</button>
+                                <button class="button button-primary" onclick="app.addVerb()" style="flex: 1;">Add Verb</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderVerbs() {
+                return `
+                    <div class="container">
+                        <div style="display: flex; align-items: center; margin-bottom: 24px; padding-top: 16px;">
+                            <button class="back-button" onclick="app.setView('menu')">←</button>
+                            <h2 style="font-size: 1.5rem; font-weight: bold; color: #1f2937;">Your Verbs</h2>
+                        </div>
+                        
+                        ${this.verbs.map(verb => `
+                            <div class="verb-card">
+                                <h3 class="verb-name">${verb.infinitive}</h3>
+                                <div class="conjugations-grid">
+                                    ${this.pronounKeys.map((pronoun, index) => `
+                                        <div class="conjugation-item">
+                                            <span style="color: #6b7280;">${this.pronouns[index]}:</span>
+                                            <span style="font-weight: 500;">${verb.conjugations[pronoun]}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            }
+
+            renderTest() {
+                const currentVerb = this.verbs[this.testState.currentVerbIndex];
+                const currentPronounDisplay = this.pronouns[this.pronounKeys.indexOf(this.testState.currentPronoun)];
+
+                return `
+                    <div style="background: linear-gradient(135deg, #f3e8ff 0%, #e0e7ff 100%); min-height: 100vh; padding: 16px;">
+                        <div class="container">
+                            <div class="test-header">
+                                <div class="score">Score: ${this.testState.score}/${this.testState.totalQuestions}</div>
+                                <button class="end-test" onclick="app.setView('results')">End Test</button>
+                            </div>
+                            
+                            <div class="test-card">
+                                <h2 class="verb-title">${currentVerb.infinitive}</h2>
+                                <div class="pronoun-display">${currentPronounDisplay} ___</div>
+                                
+                                ${!this.testState.showResult ? `
+                                    <input type="text" class="answer-input" value="${this.testState.userAnswer}"
+                                           onchange="app.updateTestAnswer(this.value)"
+                                           onkeypress="if(event.key==='Enter') app.checkAnswer()"
+                                           placeholder="Type conjugation..." autofocus>
+                                    <button class="button button-primary" onclick="app.checkAnswer()" 
+                                            ${!this.testState.userAnswer.trim() ? 'disabled' : ''}>
+                                        Check Answer
+                                    </button>
+                                ` : `
+                                    <div class="${this.testState.isCorrect ? 'result-correct' : 'result-incorrect'}">
+                                        <span style="margin-right: 8px;">${this.testState.isCorrect ? '✓' : '✗'}</span>
+                                        ${this.testState.isCorrect ? 'Correct!' : 'Incorrect'}
+                                    </div>
+                                    
+                                    ${!this.testState.isCorrect ? `
+                                        <div class="correct-answer">
+                                            Correct answer: <strong>${currentVerb.conjugations[this.testState.currentPronoun]}</strong>
+                                        </div>
+                                    ` : ''}
+                                    
+                                    <button class="button button-primary" onclick="app.nextQuestion()">
+                                        Next Question
+                                    </button>
+                                `}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderResults() {
+                const percentage = this.testState.totalQuestions > 0 ? Math.round((this.testState.score / this.testState.totalQuestions) * 100) : 0;
+
+                return `
+                    <div style="background: linear-gradient(135deg, #ecfdf5 0%, #dbeafe 100%); min-height: 100vh; padding: 16px;">
+                        <div class="container">
+                            <div style="padding-top: 32px; text-align: center;">
+                                <div style="background: white; border-radius: 12px; padding: 32px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
+                                    <h2 style="font-size: 1.5rem; font-weight: bold; color: #1f2937; margin-bottom: 24px;">Test Complete!</h2>
+                                    
+                                    <div class="percentage">${percentage}%</div>
+                                    
+                                    <div style="font-size: 1.125rem; color: #374151; margin-bottom: 32px;">
+                                        ${this.testState.score} out of ${this.testState.totalQuestions} correct
+                                    </div>
+                                    
+                                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                                        <button class="button button-primary" onclick="app.startTest()">
+                                            <span style="margin-right: 8px;">🔄</span>
+                                            Test Again
+                                        </button>
+                                        
+                                        <button class="button button-secondary" onclick="app.setView('menu')">
+                                            Back to Menu
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            attachEventListeners() {
+                // Event listeners are handled inline with onclick
+            }
+
+            updateNewVerb(field, value) {
+                this.newVerb[field] = value;
+            }
+
+            updateNewVerbConj(pronoun, value) {
+                this.newVerb.conjugations[pronoun] = value;
+            }
+
+            updateTestAnswer(value) {
+                this.testState.userAnswer = value;
+            }
+
+            resetAndGoToMenu() {
+                this.newVerb = this.getEmptyVerb();
+                this.setView('menu');
+            }
+        }
+
+        // Initialize the app
+        const app = new GermanVerbApp();
+    </script>
+</body>
+</html>
