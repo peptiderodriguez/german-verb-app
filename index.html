@@ -501,11 +501,14 @@
                     if (response.ok) {
                         const data = await response.json();
                         const content = atob(data.content);
-                        this.verbs = JSON.parse(content);
+                        const loadedVerbs = JSON.parse(content);
+                        this.verbs = loadedVerbs;
                         this.setStatus(`Loaded ${this.verbs.length} verbs from GitHub!`, 'success');
                     } else if (response.status === 404) {
-                        // File doesn't exist yet, keep default verbs and create the file
+                        // File doesn't exist yet, create it with the current verbs (keep the 100 default verbs)
+                        this.setStatus('Creating verbs.json file on GitHub with default verbs...', 'info');
                         await this.saveVerbsToGitHub();
+                        this.setStatus(`Created GitHub file with ${this.verbs.length} verbs!`, 'success');
                     } else {
                         throw new Error('Failed to load from GitHub');
                     }
@@ -974,6 +977,7 @@
             }
 
             async syncWithGitHub() {
+                this.setStatus('Syncing with GitHub...', 'info');
                 await this.loadVerbsFromGitHub();
                 this.render();
             }
