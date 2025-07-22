@@ -1,0 +1,1202 @@
+[
+  {
+    "infinitive": "sein",
+    "english": "to be",
+    "conjugations": {
+      "ich": "bin",
+      "du": "bist",
+      "er": "ist",
+      "wir": "sind",
+      "ihr": "seid",
+      "sie": "sind"
+    }
+  },
+  {
+    "infinitive": "haben",
+    "english": "to have",
+    "conjugations": {
+      "ich": "habe",
+      "du": "hast",
+      "er": "hat",
+      "wir": "haben",
+      "ihr": "habt",
+      "sie": "haben"
+    }
+  },
+  {
+    "infinitive": "werden",
+    "english": "to become",
+    "conjugations": {
+      "ich": "werde",
+      "du": "wirst",
+      "er": "wird",
+      "wir": "werden",
+      "ihr": "werdet",
+      "sie": "werden"
+    }
+  },
+  {
+    "infinitive": "können",
+    "english": "can, to be able to",
+    "conjugations": {
+      "ich": "kann",
+      "du": "kannst",
+      "er": "kann",
+      "wir": "können",
+      "ihr": "könnt",
+      "sie": "können"
+    }
+  },
+  {
+    "infinitive": "müssen",
+    "english": "must, to have to",
+    "conjugations": {
+      "ich": "muss",
+      "du": "musst",
+      "er": "muss",
+      "wir": "müssen",
+      "ihr": "müsst",
+      "sie": "müssen"
+    }
+  },
+  {
+    "infinitive": "sagen",
+    "english": "to say",
+    "conjugations": {
+      "ich": "sage",
+      "du": "sagst",
+      "er": "sagt",
+      "wir": "sagen",
+      "ihr": "sagt",
+      "sie": "sagen"
+    }
+  },
+  {
+    "infinitive": "machen",
+    "english": "to do, to make",
+    "conjugations": {
+      "ich": "mache",
+      "du": "machst",
+      "er": "macht",
+      "wir": "machen",
+      "ihr": "macht",
+      "sie": "machen"
+    }
+  },
+  {
+    "infinitive": "geben",
+    "english": "to give",
+    "conjugations": {
+      "ich": "gebe",
+      "du": "gibst",
+      "er": "gibt",
+      "wir": "geben",
+      "ihr": "gebt",
+      "sie": "geben"
+    }
+  },
+  {
+    "infinitive": "kommen",
+    "english": "to come",
+    "conjugations": {
+      "ich": "komme",
+      "du": "kommst",
+      "er": "kommt",
+      "wir": "kommen",
+      "ihr": "kommt",
+      "sie": "kommen"
+    }
+  },
+  {
+    "infinitive": "sollen",
+    "english": "should, ought to",
+    "conjugations": {
+      "ich": "soll",
+      "du": "sollst",
+      "er": "soll",
+      "wir": "sollen",
+      "ihr": "sollt",
+      "sie": "sollen"
+    }
+  },
+  {
+    "infinitive": "wollen",
+    "english": "to want",
+    "conjugations": {
+      "ich": "will",
+      "du": "willst",
+      "er": "will",
+      "wir": "wollen",
+      "ihr": "wollt",
+      "sie": "wollen"
+    }
+  },
+  {
+    "infinitive": "gehen",
+    "english": "to go",
+    "conjugations": {
+      "ich": "gehe",
+      "du": "gehst",
+      "er": "geht",
+      "wir": "gehen",
+      "ihr": "geht",
+      "sie": "gehen"
+    }
+  },
+  {
+    "infinitive": "wissen",
+    "english": "to know",
+    "conjugations": {
+      "ich": "weiß",
+      "du": "weißt",
+      "er": "weiß",
+      "wir": "wissen",
+      "ihr": "wisst",
+      "sie": "wissen"
+    }
+  },
+  {
+    "infinitive": "sehen",
+    "english": "to see",
+    "conjugations": {
+      "ich": "sehe",
+      "du": "siehst",
+      "er": "sieht",
+      "wir": "sehen",
+      "ihr": "seht",
+      "sie": "sehen"
+    }
+  },
+  {
+    "infinitive": "lassen",
+    "english": "to let, to allow",
+    "conjugations": {
+      "ich": "lasse",
+      "du": "lässt",
+      "er": "lässt",
+      "wir": "lassen",
+      "ihr": "lasst",
+      "sie": "lassen"
+    }
+  },
+  {
+    "infinitive": "stehen",
+    "english": "to stand",
+    "conjugations": {
+      "ich": "stehe",
+      "du": "stehst",
+      "er": "steht",
+      "wir": "stehen",
+      "ihr": "steht",
+      "sie": "stehen"
+    }
+  },
+  {
+    "infinitive": "finden",
+    "english": "to find",
+    "conjugations": {
+      "ich": "finde",
+      "du": "findest",
+      "er": "findet",
+      "wir": "finden",
+      "ihr": "findet",
+      "sie": "finden"
+    }
+  },
+  {
+    "infinitive": "bleiben",
+    "english": "to stay, to remain",
+    "conjugations": {
+      "ich": "bleibe",
+      "du": "bleibst",
+      "er": "bleibt",
+      "wir": "bleiben",
+      "ihr": "bleibt",
+      "sie": "bleiben"
+    }
+  },
+  {
+    "infinitive": "liegen",
+    "english": "to lie, to be lying",
+    "conjugations": {
+      "ich": "liege",
+      "du": "liegst",
+      "er": "liegt",
+      "wir": "liegen",
+      "ihr": "liegt",
+      "sie": "liegen"
+    }
+  },
+  {
+    "infinitive": "heißen",
+    "english": "to be called",
+    "conjugations": {
+      "ich": "heiße",
+      "du": "heißt",
+      "er": "heißt",
+      "wir": "heißen",
+      "ihr": "heißt",
+      "sie": "heißen"
+    }
+  },
+  {
+    "infinitive": "denken",
+    "english": "to think",
+    "conjugations": {
+      "ich": "denke",
+      "du": "denkst",
+      "er": "denkt",
+      "wir": "denken",
+      "ihr": "denkt",
+      "sie": "denken"
+    }
+  },
+  {
+    "infinitive": "nehmen",
+    "english": "to take",
+    "conjugations": {
+      "ich": "nehme",
+      "du": "nimmst",
+      "er": "nimmt",
+      "wir": "nehmen",
+      "ihr": "nehmt",
+      "sie": "nehmen"
+    }
+  },
+  {
+    "infinitive": "tun",
+    "english": "to do",
+    "conjugations": {
+      "ich": "tue",
+      "du": "tust",
+      "er": "tut",
+      "wir": "tun",
+      "ihr": "tut",
+      "sie": "tun"
+    }
+  },
+  {
+    "infinitive": "dürfen",
+    "english": "may, to be allowed",
+    "conjugations": {
+      "ich": "darf",
+      "du": "darfst",
+      "er": "darf",
+      "wir": "dürfen",
+      "ihr": "dürft",
+      "sie": "dürfen"
+    }
+  },
+  {
+    "infinitive": "glauben",
+    "english": "to believe",
+    "conjugations": {
+      "ich": "glaube",
+      "du": "glaubst",
+      "er": "glaubt",
+      "wir": "glauben",
+      "ihr": "glaubt",
+      "sie": "glauben"
+    }
+  },
+  {
+    "infinitive": "halten",
+    "english": "to stop, to hold",
+    "conjugations": {
+      "ich": "halte",
+      "du": "hältst",
+      "er": "hält",
+      "wir": "halten",
+      "ihr": "haltet",
+      "sie": "halten"
+    }
+  },
+  {
+    "infinitive": "nennen",
+    "english": "to name, to call",
+    "conjugations": {
+      "ich": "nenne",
+      "du": "nennst",
+      "er": "nennt",
+      "wir": "nennen",
+      "ihr": "nennt",
+      "sie": "nennen"
+    }
+  },
+  {
+    "infinitive": "mögen",
+    "english": "to like",
+    "conjugations": {
+      "ich": "mag",
+      "du": "magst",
+      "er": "mag",
+      "wir": "mögen",
+      "ihr": "mögt",
+      "sie": "mögen"
+    }
+  },
+  {
+    "infinitive": "zeigen",
+    "english": "to show",
+    "conjugations": {
+      "ich": "zeige",
+      "du": "zeigst",
+      "er": "zeigt",
+      "wir": "zeigen",
+      "ihr": "zeigt",
+      "sie": "zeigen"
+    }
+  },
+  {
+    "infinitive": "führen",
+    "english": "to lead",
+    "conjugations": {
+      "ich": "führe",
+      "du": "führst",
+      "er": "führt",
+      "wir": "führen",
+      "ihr": "führt",
+      "sie": "führen"
+    }
+  },
+  {
+    "infinitive": "sprechen",
+    "english": "to speak",
+    "conjugations": {
+      "ich": "spreche",
+      "du": "sprichst",
+      "er": "spricht",
+      "wir": "sprechen",
+      "ihr": "sprecht",
+      "sie": "sprechen"
+    }
+  },
+  {
+    "infinitive": "bringen",
+    "english": "to bring",
+    "conjugations": {
+      "ich": "bringe",
+      "du": "bringst",
+      "er": "bringt",
+      "wir": "bringen",
+      "ihr": "bringt",
+      "sie": "bringen"
+    }
+  },
+  {
+    "infinitive": "leben",
+    "english": "to live",
+    "conjugations": {
+      "ich": "lebe",
+      "du": "lebst",
+      "er": "lebt",
+      "wir": "leben",
+      "ihr": "lebt",
+      "sie": "leben"
+    }
+  },
+  {
+    "infinitive": "fahren",
+    "english": "to drive, to go",
+    "conjugations": {
+      "ich": "fahre",
+      "du": "fährst",
+      "er": "fährt",
+      "wir": "fahren",
+      "ihr": "fahrt",
+      "sie": "fahren"
+    }
+  },
+  {
+    "infinitive": "meinen",
+    "english": "to mean, to think",
+    "conjugations": {
+      "ich": "meine",
+      "du": "meinst",
+      "er": "meint",
+      "wir": "meinen",
+      "ihr": "meint",
+      "sie": "meinen"
+    }
+  },
+  {
+    "infinitive": "fragen",
+    "english": "to ask",
+    "conjugations": {
+      "ich": "frage",
+      "du": "fragst",
+      "er": "fragt",
+      "wir": "fragen",
+      "ihr": "fragt",
+      "sie": "fragen"
+    }
+  },
+  {
+    "infinitive": "kennen",
+    "english": "to know (someone)",
+    "conjugations": {
+      "ich": "kenne",
+      "du": "kennst",
+      "er": "kennt",
+      "wir": "kennen",
+      "ihr": "kennt",
+      "sie": "kennen"
+    }
+  },
+  {
+    "infinitive": "gelten",
+    "english": "to be valid",
+    "conjugations": {
+      "ich": "gelte",
+      "du": "giltst",
+      "er": "gilt",
+      "wir": "gelten",
+      "ihr": "geltet",
+      "sie": "gelten"
+    }
+  },
+  {
+    "infinitive": "stellen",
+    "english": "to place, to set",
+    "conjugations": {
+      "ich": "stelle",
+      "du": "stellst",
+      "er": "stellt",
+      "wir": "stellen",
+      "ihr": "stellt",
+      "sie": "stellen"
+    }
+  },
+  {
+    "infinitive": "spielen",
+    "english": "to play",
+    "conjugations": {
+      "ich": "spiele",
+      "du": "spielst",
+      "er": "spielt",
+      "wir": "spielen",
+      "ihr": "spielt",
+      "sie": "spielen"
+    }
+  },
+  {
+    "infinitive": "arbeiten",
+    "english": "to work",
+    "conjugations": {
+      "ich": "arbeite",
+      "du": "arbeitest",
+      "er": "arbeitet",
+      "wir": "arbeiten",
+      "ihr": "arbeitet",
+      "sie": "arbeiten"
+    }
+  },
+  {
+    "infinitive": "brauchen",
+    "english": "to need",
+    "conjugations": {
+      "ich": "brauche",
+      "du": "brauchst",
+      "er": "braucht",
+      "wir": "brauchen",
+      "ihr": "braucht",
+      "sie": "brauchen"
+    }
+  },
+  {
+    "infinitive": "folgen",
+    "english": "to follow",
+    "conjugations": {
+      "ich": "folge",
+      "du": "folgst",
+      "er": "folgt",
+      "wir": "folgen",
+      "ihr": "folgt",
+      "sie": "folgen"
+    }
+  },
+  {
+    "infinitive": "lernen",
+    "english": "to learn",
+    "conjugations": {
+      "ich": "lerne",
+      "du": "lernst",
+      "er": "lernt",
+      "wir": "lernen",
+      "ihr": "lernt",
+      "sie": "lernen"
+    }
+  },
+  {
+    "infinitive": "bestehen",
+    "english": "to exist, to pass",
+    "conjugations": {
+      "ich": "bestehe",
+      "du": "bestehst",
+      "er": "besteht",
+      "wir": "bestehen",
+      "ihr": "besteht",
+      "sie": "bestehen"
+    }
+  },
+  {
+    "infinitive": "verstehen",
+    "english": "to understand",
+    "conjugations": {
+      "ich": "verstehe",
+      "du": "verstehst",
+      "er": "versteht",
+      "wir": "verstehen",
+      "ihr": "versteht",
+      "sie": "verstehen"
+    }
+  },
+  {
+    "infinitive": "setzen",
+    "english": "to set, to put",
+    "conjugations": {
+      "ich": "setze",
+      "du": "setzt",
+      "er": "setzt",
+      "wir": "setzen",
+      "ihr": "setzt",
+      "sie": "setzen"
+    }
+  },
+  {
+    "infinitive": "bekommen",
+    "english": "to get, to receive",
+    "conjugations": {
+      "ich": "bekomme",
+      "du": "bekommst",
+      "er": "bekommt",
+      "wir": "bekommen",
+      "ihr": "bekommt",
+      "sie": "bekommen"
+    }
+  },
+  {
+    "infinitive": "beginnen",
+    "english": "to begin",
+    "conjugations": {
+      "ich": "beginne",
+      "du": "beginnst",
+      "er": "beginnt",
+      "wir": "beginnen",
+      "ihr": "beginnt",
+      "sie": "beginnen"
+    }
+  },
+  {
+    "infinitive": "erzählen",
+    "english": "to tell, to narrate",
+    "conjugations": {
+      "ich": "erzähle",
+      "du": "erzählst",
+      "er": "erzählt",
+      "wir": "erzählen",
+      "ihr": "erzählt",
+      "sie": "erzählen"
+    }
+  },
+  {
+    "infinitive": "versuchen",
+    "english": "to try",
+    "conjugations": {
+      "ich": "versuche",
+      "du": "versuchst",
+      "er": "versucht",
+      "wir": "versuchen",
+      "ihr": "versucht",
+      "sie": "versuchen"
+    }
+  },
+  {
+    "infinitive": "schreiben",
+    "english": "to write",
+    "conjugations": {
+      "ich": "schreibe",
+      "du": "schreibst",
+      "er": "schreibt",
+      "wir": "schreiben",
+      "ihr": "schreibt",
+      "sie": "schreiben"
+    }
+  },
+  {
+    "infinitive": "laufen",
+    "english": "to run",
+    "conjugations": {
+      "ich": "laufe",
+      "du": "läufst",
+      "er": "läuft",
+      "wir": "laufen",
+      "ihr": "lauft",
+      "sie": "laufen"
+    }
+  },
+  {
+    "infinitive": "erklären",
+    "english": "to explain",
+    "conjugations": {
+      "ich": "erkläre",
+      "du": "erklärst",
+      "er": "erklärt",
+      "wir": "erklären",
+      "ihr": "erklärt",
+      "sie": "erklären"
+    }
+  },
+  {
+    "infinitive": "entsprechen",
+    "english": "to correspond",
+    "conjugations": {
+      "ich": "entspreche",
+      "du": "entsprichst",
+      "er": "entspricht",
+      "wir": "entsprechen",
+      "ihr": "entsprecht",
+      "sie": "entsprechen"
+    }
+  },
+  {
+    "infinitive": "sitzen",
+    "english": "to sit",
+    "conjugations": {
+      "ich": "sitze",
+      "du": "sitzt",
+      "er": "sitzt",
+      "wir": "sitzen",
+      "ihr": "sitzt",
+      "sie": "sitzen"
+    }
+  },
+  {
+    "infinitive": "ziehen",
+    "english": "to pull, to move",
+    "conjugations": {
+      "ich": "ziehe",
+      "du": "ziehst",
+      "er": "zieht",
+      "wir": "ziehen",
+      "ihr": "zieht",
+      "sie": "ziehen"
+    }
+  },
+  {
+    "infinitive": "scheinen",
+    "english": "to shine, to seem",
+    "conjugations": {
+      "ich": "scheine",
+      "du": "scheinst",
+      "er": "scheint",
+      "wir": "scheinen",
+      "ihr": "scheint",
+      "sie": "scheinen"
+    }
+  },
+  {
+    "infinitive": "fallen",
+    "english": "to fall",
+    "conjugations": {
+      "ich": "falle",
+      "du": "fällst",
+      "er": "fällt",
+      "wir": "fallen",
+      "ihr": "fallt",
+      "sie": "fallen"
+    }
+  },
+  {
+    "infinitive": "gehören",
+    "english": "to belong",
+    "conjugations": {
+      "ich": "gehöre",
+      "du": "gehörst",
+      "er": "gehört",
+      "wir": "gehören",
+      "ihr": "gehört",
+      "sie": "gehören"
+    }
+  },
+  {
+    "infinitive": "entstehen",
+    "english": "to originate, to develop",
+    "conjugations": {
+      "ich": "entstehe",
+      "du": "entstehst",
+      "er": "entsteht",
+      "wir": "entstehen",
+      "ihr": "entsteht",
+      "sie": "entstehen"
+    }
+  },
+  {
+    "infinitive": "erhalten",
+    "english": "to receive",
+    "conjugations": {
+      "ich": "erhalte",
+      "du": "erhältst",
+      "er": "erhält",
+      "wir": "erhalten",
+      "ihr": "erhaltet",
+      "sie": "erhalten"
+    }
+  },
+  {
+    "infinitive": "treffen",
+    "english": "to meet",
+    "conjugations": {
+      "ich": "treffe",
+      "du": "triffst",
+      "er": "trifft",
+      "wir": "treffen",
+      "ihr": "trefft",
+      "sie": "treffen"
+    }
+  },
+  {
+    "infinitive": "suchen",
+    "english": "to search, to look for",
+    "conjugations": {
+      "ich": "suche",
+      "du": "suchst",
+      "er": "sucht",
+      "wir": "suchen",
+      "ihr": "sucht",
+      "sie": "suchen"
+    }
+  },
+  {
+    "infinitive": "legen",
+    "english": "to lay, to put",
+    "conjugations": {
+      "ich": "lege",
+      "du": "legst",
+      "er": "legt",
+      "wir": "legen",
+      "ihr": "legt",
+      "sie": "legen"
+    }
+  },
+  {
+    "infinitive": "vorstellen",
+    "english": "to introduce, to imagine",
+    "conjugations": {
+      "ich": "stelle vor",
+      "du": "stellst vor",
+      "er": "stellt vor",
+      "wir": "stellen vor",
+      "ihr": "stellt vor",
+      "sie": "stellen vor"
+    }
+  },
+  {
+    "infinitive": "handeln",
+    "english": "to deal, to trade",
+    "conjugations": {
+      "ich": "handle",
+      "du": "handelst",
+      "er": "handelt",
+      "wir": "handeln",
+      "ihr": "handelt",
+      "sie": "handeln"
+    }
+  },
+  {
+    "infinitive": "erreichen",
+    "english": "to achieve, to reach",
+    "conjugations": {
+      "ich": "erreiche",
+      "du": "erreichst",
+      "er": "erreicht",
+      "wir": "erreichen",
+      "ihr": "erreicht",
+      "sie": "erreichen"
+    }
+  },
+  {
+    "infinitive": "tragen",
+    "english": "to carry, to wear",
+    "conjugations": {
+      "ich": "trage",
+      "du": "trägst",
+      "er": "trägt",
+      "wir": "tragen",
+      "ihr": "tragt",
+      "sie": "tragen"
+    }
+  },
+  {
+    "infinitive": "schaffen",
+    "english": "to manage, to create",
+    "conjugations": {
+      "ich": "schaffe",
+      "du": "schaffst",
+      "er": "schafft",
+      "wir": "schaffen",
+      "ihr": "schafft",
+      "sie": "schaffen"
+    }
+  },
+  {
+    "infinitive": "lesen",
+    "english": "to read",
+    "conjugations": {
+      "ich": "lese",
+      "du": "liest",
+      "er": "liest",
+      "wir": "lesen",
+      "ihr": "lest",
+      "sie": "lesen"
+    }
+  },
+  {
+    "infinitive": "verlieren",
+    "english": "to lose",
+    "conjugations": {
+      "ich": "verliere",
+      "du": "verlierst",
+      "er": "verliert",
+      "wir": "verlieren",
+      "ihr": "verliert",
+      "sie": "verlieren"
+    }
+  },
+  {
+    "infinitive": "darstellen",
+    "english": "to depict, to portray",
+    "conjugations": {
+      "ich": "stelle dar",
+      "du": "stellst dar",
+      "er": "stellt dar",
+      "wir": "stellen dar",
+      "ihr": "stellt dar",
+      "sie": "stellen dar"
+    }
+  },
+  {
+    "infinitive": "erkennen",
+    "english": "to recognize",
+    "conjugations": {
+      "ich": "erkenne",
+      "du": "erkennst",
+      "er": "erkennt",
+      "wir": "erkennen",
+      "ihr": "erkennt",
+      "sie": "erkennen"
+    }
+  },
+  {
+    "infinitive": "entwickeln",
+    "english": "to develop",
+    "conjugations": {
+      "ich": "entwickle",
+      "du": "entwickelst",
+      "er": "entwickelt",
+      "wir": "entwickeln",
+      "ihr": "entwickelt",
+      "sie": "entwickeln"
+    }
+  },
+  {
+    "infinitive": "reden",
+    "english": "to talk",
+    "conjugations": {
+      "ich": "rede",
+      "du": "redest",
+      "er": "redet",
+      "wir": "reden",
+      "ihr": "redet",
+      "sie": "reden"
+    }
+  },
+  {
+    "infinitive": "aussehen",
+    "english": "to appear, to look",
+    "conjugations": {
+      "ich": "sehe aus",
+      "du": "siehst aus",
+      "er": "sieht aus",
+      "wir": "sehen aus",
+      "ihr": "seht aus",
+      "sie": "sehen aus"
+    }
+  },
+  {
+    "infinitive": "erscheinen",
+    "english": "to appear",
+    "conjugations": {
+      "ich": "erscheine",
+      "du": "erscheinst",
+      "er": "erscheint",
+      "wir": "erscheinen",
+      "ihr": "erscheint",
+      "sie": "erscheinen"
+    }
+  },
+  {
+    "infinitive": "bilden",
+    "english": "to form, to educate",
+    "conjugations": {
+      "ich": "bilde",
+      "du": "bildest",
+      "er": "bildet",
+      "wir": "bilden",
+      "ihr": "bildet",
+      "sie": "bilden"
+    }
+  },
+  {
+    "infinitive": "anfangen",
+    "english": "to begin",
+    "conjugations": {
+      "ich": "fange an",
+      "du": "fängst an",
+      "er": "fängt an",
+      "wir": "fangen an",
+      "ihr": "fangt an",
+      "sie": "fangen an"
+    }
+  },
+  {
+    "infinitive": "erwarten",
+    "english": "to expect",
+    "conjugations": {
+      "ich": "erwarte",
+      "du": "erwartest",
+      "er": "erwartet",
+      "wir": "erwarten",
+      "ihr": "erwartet",
+      "sie": "erwarten"
+    }
+  },
+  {
+    "infinitive": "wohnen",
+    "english": "to live",
+    "conjugations": {
+      "ich": "wohne",
+      "du": "wohnst",
+      "er": "wohnt",
+      "wir": "wohnen",
+      "ihr": "wohnt",
+      "sie": "wohnen"
+    }
+  },
+  {
+    "infinitive": "betreffen",
+    "english": "to affect, to concern",
+    "conjugations": {
+      "ich": "betreffe",
+      "du": "betriffst",
+      "er": "betrifft",
+      "wir": "betreffen",
+      "ihr": "betrefft",
+      "sie": "betreffen"
+    }
+  },
+  {
+    "infinitive": "warten",
+    "english": "to wait",
+    "conjugations": {
+      "ich": "warte",
+      "du": "wartest",
+      "er": "wartet",
+      "wir": "warten",
+      "ihr": "wartet",
+      "sie": "warten"
+    }
+  },
+  {
+    "infinitive": "vergehen",
+    "english": "to elapse, to decay",
+    "conjugations": {
+      "ich": "vergehe",
+      "du": "vergehst",
+      "er": "vergeht",
+      "wir": "vergehen",
+      "ihr": "vergeht",
+      "sie": "vergehen"
+    }
+  },
+  {
+    "infinitive": "helfen",
+    "english": "to help",
+    "conjugations": {
+      "ich": "helfe",
+      "du": "hilfst",
+      "er": "hilft",
+      "wir": "helfen",
+      "ihr": "helft",
+      "sie": "helfen"
+    }
+  },
+  {
+    "infinitive": "gewinnen",
+    "english": "to win",
+    "conjugations": {
+      "ich": "gewinne",
+      "du": "gewinnst",
+      "er": "gewinnt",
+      "wir": "gewinnen",
+      "ihr": "gewinnt",
+      "sie": "gewinnen"
+    }
+  },
+  {
+    "infinitive": "schließen",
+    "english": "to close",
+    "conjugations": {
+      "ich": "schließe",
+      "du": "schließt",
+      "er": "schließt",
+      "wir": "schließen",
+      "ihr": "schließt",
+      "sie": "schließen"
+    }
+  },
+  {
+    "infinitive": "fühlen",
+    "english": "to feel",
+    "conjugations": {
+      "ich": "fühle",
+      "du": "fühlst",
+      "er": "fühlt",
+      "wir": "fühlen",
+      "ihr": "fühlt",
+      "sie": "fühlen"
+    }
+  },
+  {
+    "infinitive": "bieten",
+    "english": "to offer",
+    "conjugations": {
+      "ich": "biete",
+      "du": "bietest",
+      "er": "bietet",
+      "wir": "bieten",
+      "ihr": "bietet",
+      "sie": "bieten"
+    }
+  },
+  {
+    "infinitive": "interessieren",
+    "english": "to interest",
+    "conjugations": {
+      "ich": "interessiere",
+      "du": "interessierst",
+      "er": "interessiert",
+      "wir": "interessieren",
+      "ihr": "interessiert",
+      "sie": "interessieren"
+    }
+  },
+  {
+    "infinitive": "erinnern",
+    "english": "to remember",
+    "conjugations": {
+      "ich": "erinnere",
+      "du": "erinnerst",
+      "er": "erinnert",
+      "wir": "erinnern",
+      "ihr": "erinnert",
+      "sie": "erinnern"
+    }
+  },
+  {
+    "infinitive": "ergeben",
+    "english": "to result in",
+    "conjugations": {
+      "ich": "ergebe",
+      "du": "ergibst",
+      "er": "ergibt",
+      "wir": "ergeben",
+      "ihr": "ergebt",
+      "sie": "ergeben"
+    }
+  },
+  {
+    "infinitive": "anbieten",
+    "english": "to offer",
+    "conjugations": {
+      "ich": "biete an",
+      "du": "bietest an",
+      "er": "bietet an",
+      "wir": "bieten an",
+      "ihr": "bietet an",
+      "sie": "bieten an"
+    }
+  },
+  {
+    "infinitive": "studieren",
+    "english": "to study",
+    "conjugations": {
+      "ich": "studiere",
+      "du": "studierst",
+      "er": "studiert",
+      "wir": "studieren",
+      "ihr": "studiert",
+      "sie": "studieren"
+    }
+  },
+  {
+    "infinitive": "verbinden",
+    "english": "to connect",
+    "conjugations": {
+      "ich": "verbinde",
+      "du": "verbindest",
+      "er": "verbindet",
+      "wir": "verbinden",
+      "ihr": "verbindet",
+      "sie": "verbinden"
+    }
+  },
+  {
+    "infinitive": "ansehen",
+    "english": "to look at, to watch",
+    "conjugations": {
+      "ich": "sehe an",
+      "du": "siehst an",
+      "er": "sieht an",
+      "wir": "sehen an",
+      "ihr": "seht an",
+      "sie": "sehen an"
+    }
+  },
+  {
+    "infinitive": "fehlen",
+    "english": "to lack, to be missing",
+    "conjugations": {
+      "ich": "fehle",
+      "du": "fehlst",
+      "er": "fehlt",
+      "wir": "fehlen",
+      "ihr": "fehlt",
+      "sie": "fehlen"
+    }
+  },
+  {
+    "infinitive": "bedeuten",
+    "english": "to mean",
+    "conjugations": {
+      "ich": "bedeute",
+      "du": "bedeutest",
+      "er": "bedeutet",
+      "wir": "bedeuten",
+      "ihr": "bedeutet",
+      "sie": "bedeuten"
+    }
+  },
+  {
+    "infinitive": "vergleichen",
+    "english": "to compare",
+    "conjugations": {
+      "ich": "vergleiche",
+      "du": "vergleichst",
+      "er": "vergleicht",
+      "wir": "vergleichen",
+      "ihr": "vergleicht",
+      "sie": "vergleichen"
+    }
+  }
+]
