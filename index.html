@@ -69,6 +69,18 @@
             justify-content: center;
         }
         
+        .button-success {
+            background: #10b981;
+            color: white;
+            justify-content: center;
+        }
+        
+        .button-warning {
+            background: #f59e0b;
+            color: white;
+            justify-content: center;
+        }
+        
         .button:disabled {
             opacity: 0.5;
             cursor: not-allowed;
@@ -265,70 +277,232 @@
         .gradient-green {
             background: linear-gradient(135deg, #ecfdf5 0%, #dbeafe 100%);
         }
+        
+        .status-message {
+            background: white;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 16px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .status-success {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .status-error {
+            background: #fecaca;
+            color: #991b1b;
+        }
+        
+        .status-info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .github-setup {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 16px;
+        }
+        
+        .setup-step {
+            margin-bottom: 16px;
+            padding: 12px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #6366f1;
+        }
     </style>
 </head>
 <body>
     <div id="app"></div>
 
     <script>
-        // Simple German Verb Conjugation App
+        // German Verb Conjugation App with GitHub Integration
         class GermanVerbApp {
             constructor() {
-                this.verbs = [
-                    {
-                        infinitive: 'sein',
-                        conjugations: {
-                            ich: 'bin',
-                            du: 'bist',
-                            er: 'ist',
-                            wir: 'sind',
-                            ihr: 'seid',
-                            sie: 'sind'
-                        }
-                    },
-                    {
-                        infinitive: 'haben',
-                        conjugations: {
-                            ich: 'habe',
-                            du: 'hast',
-                            er: 'hat',
-                            wir: 'haben',
-                            ihr: 'habt',
-                            sie: 'haben'
-                        }
-                    },
-                    {
-                        infinitive: 'gehen',
-                        conjugations: {
-                            ich: 'gehe',
-                            du: 'gehst',
-                            er: 'geht',
-                            wir: 'gehen',
-                            ihr: 'geht',
-                            sie: 'gehen'
-                        }
-                    }
-                ];
-
-                this.currentView = 'menu';
+                this.verbs = [];
+                this.currentView = 'setup';
                 this.newVerb = this.getEmptyVerb();
                 this.testState = this.getEmptyTestState();
-                this.pronouns = ['ich', 'du', 'er/sie/es', 'wir', 'ihr', 'sie'];
+                this.pronouns = ['ich', 'du', 'er/sie/es', 'wir', 'ihr', 'seid'];
                 this.pronounKeys = ['ich', 'du', 'er', 'wir', 'ihr', 'sie'];
+                this.statusMessage = '';
+                this.statusType = '';
 
+                // GitHub configuration
+                this.github = {
+                    token: localStorage.getItem('github_token') || '',
+                    username: localStorage.getItem('github_username') || '',
+                    repo: localStorage.getItem('github_repo') || '',
+                    isConfigured: false
+                };
+
+                this.checkGitHubConfig();
+                this.loadVerbsFromGitHub();
                 this.render();
+            }
+
+            checkGitHubConfig() {
+                this.github.isConfigured = !!(this.github.token && this.github.username && this.github.repo);
+                if (this.github.isConfigured) {
+                    this.currentView = 'menu';
+                }
+            }
+
+            async saveGitHubConfig(token, username, repo) {
+                this.github = { token, username, repo, isConfigured: true };
+                localStorage.setItem('github_token', token);
+                localStorage.setItem('github_username', username);
+                localStorage.setItem('github_repo', repo);
+                
+                this.setStatus('GitHub configuration saved!', 'success');
+                this.currentView = 'menu';
+                await this.loadVerbsFromGitHub();
+                this.render();
+            }
+
+            async loadVerbsFromGitHub() {
+                if (!this.github.isConfigured) return;
+
+                try {
+                    this.setStatus('Loading verbs from GitHub...', 'info');
+                    this.render();
+
+                    const response = await fetch(`https://api.github.com/repos/${this.github.username}/${this.github.repo}/contents/verbs.json`, {
+                        headers: {
+                            'Authorization': `token ${this.github.token}`,
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        const content = atob(data.content);
+                        this.verbs = JSON.parse(content);
+                        this.setStatus(`Loaded ${this.verbs.length} verbs from GitHub!`, 'success');
+                    } else if (response.status === 404) {
+                        // File doesn't exist yet, start with default verbs
+                        this.verbs = [
+                            {
+                                infinitive: 'sein',
+                                conjugations: {
+                                    ich: 'bin',
+                                    du: 'bist',
+                                    er: 'ist',
+                                    wir: 'sind',
+                                    ihr: 'seid',
+                                    sie: 'sind'
+                                }
+                            },
+                            {
+                                infinitive: 'haben',
+                                conjugations: {
+                                    ich: 'habe',
+                                    du: 'hast',
+                                    er: 'hat',
+                                    wir: 'haben',
+                                    ihr: 'habt',
+                                    sie: 'haben'
+                                }
+                            }
+                        ];
+                        await this.saveVerbsToGitHub();
+                    } else {
+                        throw new Error('Failed to load from GitHub');
+                    }
+                } catch (error) {
+                    console.error('GitHub load error:', error);
+                    this.setStatus('Failed to load from GitHub. Using local storage.', 'error');
+                    // Fallback to default verbs if GitHub fails
+                    if (this.verbs.length === 0) {
+                        this.verbs = [
+                            {
+                                infinitive: 'sein',
+                                conjugations: {
+                                    ich: 'bin', du: 'bist', er: 'ist',
+                                    wir: 'sind', ihr: 'seid', sie: 'sind'
+                                }
+                            }
+                        ];
+                    }
+                }
+            }
+
+            async saveVerbsToGitHub() {
+                if (!this.github.isConfigured) return;
+
+                try {
+                    this.setStatus('Saving verbs to GitHub...', 'info');
+                    this.render();
+
+                    // First, try to get the current file to get its SHA
+                    let sha = null;
+                    try {
+                        const currentFile = await fetch(`https://api.github.com/repos/${this.github.username}/${this.github.repo}/contents/verbs.json`, {
+                            headers: {
+                                'Authorization': `token ${this.github.token}`,
+                                'Accept': 'application/vnd.github.v3+json'
+                            }
+                        });
+                        if (currentFile.ok) {
+                            const data = await currentFile.json();
+                            sha = data.sha;
+                        }
+                    } catch (e) {
+                        // File doesn't exist yet, which is fine
+                    }
+
+                    const content = btoa(JSON.stringify(this.verbs, null, 2));
+                    const body = {
+                        message: `Update verbs - ${this.verbs.length} verbs stored`,
+                        content: content,
+                        ...(sha && { sha })
+                    };
+
+                    const response = await fetch(`https://api.github.com/repos/${this.github.username}/${this.github.repo}/contents/verbs.json`, {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `token ${this.github.token}`,
+                            'Accept': 'application/vnd.github.v3+json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(body)
+                    });
+
+                    if (response.ok) {
+                        this.setStatus('Verbs saved to GitHub successfully!', 'success');
+                    } else {
+                        throw new Error(`GitHub API error: ${response.status}`);
+                    }
+                } catch (error) {
+                    console.error('GitHub save error:', error);
+                    this.setStatus('Failed to save to GitHub. Check your token and repo settings.', 'error');
+                }
+            }
+
+            setStatus(message, type = 'info') {
+                this.statusMessage = message;
+                this.statusType = type;
+                // Clear status after 5 seconds
+                setTimeout(() => {
+                    if (this.statusMessage === message) {
+                        this.statusMessage = '';
+                        this.render();
+                    }
+                }, 5000);
             }
 
             getEmptyVerb() {
                 return {
                     infinitive: '',
                     conjugations: {
-                        ich: '',
-                        du: '',
-                        er: '',
-                        wir: '',
-                        ihr: '',
-                        sie: ''
+                        ich: '', du: '', er: '', wir: '', ihr: '', sie: ''
                     }
                 };
             }
@@ -350,15 +524,17 @@
                 this.render();
             }
 
-            addVerb() {
+            async addVerb() {
                 if (this.newVerb.infinitive && Object.values(this.newVerb.conjugations).every(conj => conj.trim())) {
                     this.verbs.push({...this.newVerb});
                     this.newVerb = this.getEmptyVerb();
+                    await this.saveVerbsToGitHub();
                     this.setView('menu');
                 }
             }
 
             startTest() {
+                if (this.verbs.length === 0) return;
                 this.testState = {
                     currentVerbIndex: Math.floor(Math.random() * this.verbs.length),
                     currentPronoun: this.pronounKeys[Math.floor(Math.random() * this.pronounKeys.length)],
@@ -400,7 +576,9 @@
             render() {
                 const app = document.getElementById('app');
                 
-                if (this.currentView === 'menu') {
+                if (this.currentView === 'setup') {
+                    app.innerHTML = this.renderSetup();
+                } else if (this.currentView === 'menu') {
                     app.innerHTML = this.renderMenu();
                 } else if (this.currentView === 'addVerb') {
                     app.innerHTML = this.renderAddVerb();
@@ -415,13 +593,73 @@
                 this.attachEventListeners();
             }
 
+            renderSetup() {
+                return `
+                    <div class="container">
+                        <div class="header">
+                            <h1 class="title">German Verbs</h1>
+                            <p class="subtitle">GitHub Setup Required</p>
+                        </div>
+                        
+                        ${this.statusMessage ? `<div class="status-message status-${this.statusType}">${this.statusMessage}</div>` : ''}
+                        
+                        <div class="github-setup">
+                            <h3 style="margin-bottom: 16px; color: #1f2937;">Setup GitHub Integration</h3>
+                            
+                            <div class="setup-step">
+                                <strong>Step 1:</strong> Create a Personal Access Token
+                                <br><small>Go to GitHub.com → Settings → Developer settings → Personal access tokens → Generate new token (classic)</small>
+                            </div>
+                            
+                            <div class="setup-step">
+                                <strong>Step 2:</strong> Give it "repo" permissions
+                                <br><small>Check the "repo" checkbox to allow reading/writing to repositories</small>
+                            </div>
+                            
+                            <div class="setup-step">
+                                <strong>Step 3:</strong> Fill in the details below
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="label">GitHub Personal Access Token</label>
+                                <input type="password" id="github-token" class="input" 
+                                       placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="label">Your GitHub Username</label>
+                                <input type="text" id="github-username" class="input" 
+                                       placeholder="your-username">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="label">Repository Name</label>
+                                <input type="text" id="github-repo" class="input" 
+                                       placeholder="german-verb-app" value="german-verb-app">
+                            </div>
+                            
+                            <button class="button button-primary" onclick="app.setupGitHub()">
+                                <span class="icon">🚀</span>
+                                <span>Connect to GitHub</span>
+                            </button>
+                            
+                            <div style="margin-top: 16px; padding: 16px; background: #fef3c7; border-radius: 8px; font-size: 14px;">
+                                <strong>Note:</strong> This will create a "verbs.json" file in your repository to store your verb data permanently.
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
             renderMenu() {
                 return `
                     <div class="container">
                         <div class="header">
                             <h1 class="title">German Verbs</h1>
-                            <p class="subtitle">Master present tense conjugation</p>
+                            <p class="subtitle">Synced with GitHub • ${this.verbs.length} verbs</p>
                         </div>
+                        
+                        ${this.statusMessage ? `<div class="status-message status-${this.statusType}">${this.statusMessage}</div>` : ''}
                         
                         <button class="button" onclick="app.setView('addVerb')">
                             <span class="icon">➕</span>
@@ -438,9 +676,19 @@
                             </div>
                         </button>
                         
+                        <button class="button button-success" onclick="app.syncWithGitHub()">
+                            <span class="icon">🔄</span>
+                            <span>Sync with GitHub</span>
+                        </button>
+                        
                         <button class="button button-primary" onclick="app.startTest()" ${this.verbs.length === 0 ? 'disabled' : ''}>
                             <span class="icon">▶️</span>
                             <span style="font-weight: 600; font-size: 18px;">Start Test</span>
+                        </button>
+                        
+                        <button class="button button-warning" onclick="app.setView('setup')" style="margin-top: 24px;">
+                            <span class="icon">⚙️</span>
+                            <span>GitHub Settings</span>
                         </button>
                     </div>
                 `;
@@ -453,6 +701,8 @@
                             <button class="back-button" onclick="app.setView('menu')">←</button>
                             <h2 style="font-size: 1.5rem; font-weight: bold; color: #1f2937;">Add New Verb</h2>
                         </div>
+                        
+                        ${this.statusMessage ? `<div class="status-message status-${this.statusType}">${this.statusMessage}</div>` : ''}
                         
                         <div style="background: white; border-radius: 12px; padding: 24px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
                             <div class="form-group">
@@ -477,7 +727,7 @@
                             
                             <div class="button-row">
                                 <button class="button button-secondary" onclick="app.resetAndGoToMenu()" style="flex: 1;">Cancel</button>
-                                <button class="button button-primary" onclick="app.addVerb()" style="flex: 1;">Add Verb</button>
+                                <button class="button button-primary" onclick="app.addVerb()" style="flex: 1;">Add & Save to GitHub</button>
                             </div>
                         </div>
                     </div>
@@ -491,6 +741,8 @@
                             <button class="back-button" onclick="app.setView('menu')">←</button>
                             <h2 style="font-size: 1.5rem; font-weight: bold; color: #1f2937;">Your Verbs</h2>
                         </div>
+                        
+                        ${this.statusMessage ? `<div class="status-message status-${this.statusType}">${this.statusMessage}</div>` : ''}
                         
                         ${this.verbs.map(verb => `
                             <div class="verb-card">
@@ -514,7 +766,7 @@
                 const currentPronounDisplay = this.pronouns[this.pronounKeys.indexOf(this.testState.currentPronoun)];
 
                 return `
-                    <div style="background: linear-gradient(135deg, #f3e8ff 0%, #e0e7ff 100%); min-height: 100vh; padding: 16px;">
+                    <div class="gradient-purple" style="min-height: 100vh; padding: 16px;">
                         <div class="container">
                             <div class="test-header">
                                 <div class="score">Score: ${this.testState.score}/${this.testState.totalQuestions}</div>
@@ -560,7 +812,7 @@
                 const percentage = this.testState.totalQuestions > 0 ? Math.round((this.testState.score / this.testState.totalQuestions) * 100) : 0;
 
                 return `
-                    <div style="background: linear-gradient(135deg, #ecfdf5 0%, #dbeafe 100%); min-height: 100vh; padding: 16px;">
+                    <div class="gradient-green" style="min-height: 100vh; padding: 16px;">
                         <div class="container">
                             <div style="padding-top: 32px; text-align: center;">
                                 <div style="background: white; border-radius: 12px; padding: 32px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
@@ -591,6 +843,24 @@
 
             attachEventListeners() {
                 // Event listeners are handled inline with onclick
+            }
+
+            setupGitHub() {
+                const token = document.getElementById('github-token').value;
+                const username = document.getElementById('github-username').value;
+                const repo = document.getElementById('github-repo').value;
+
+                if (!token || !username || !repo) {
+                    this.setStatus('Please fill in all GitHub fields', 'error');
+                    return;
+                }
+
+                this.saveGitHubConfig(token, username, repo);
+            }
+
+            async syncWithGitHub() {
+                await this.loadVerbsFromGitHub();
+                this.render();
             }
 
             updateNewVerb(field, value) {
