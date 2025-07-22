@@ -548,6 +548,8 @@
             }
 
             checkAnswer() {
+                if (!this.testState.userAnswer.trim()) return;
+                
                 const currentVerb = this.verbs[this.testState.currentVerbIndex];
                 const correctAnswer = currentVerb.conjugations[this.testState.currentPronoun];
                 const isCorrect = this.testState.userAnswer.toLowerCase().trim() === correctAnswer.toLowerCase();
@@ -778,12 +780,11 @@
                                 <div class="pronoun-display">${currentPronounDisplay} ___</div>
                                 
                                 ${!this.testState.showResult ? `
-                                    <input type="text" class="answer-input" value="${this.testState.userAnswer}"
-                                           onchange="app.updateTestAnswer(this.value)"
-                                           onkeypress="if(event.key==='Enter') app.checkAnswer()"
+                                    <input type="text" class="answer-input" id="answer-input" value="${this.testState.userAnswer}"
+                                           oninput="app.updateTestAnswer(this.value)"
+                                           onkeypress="if(event.key==='Enter' && this.value.trim()) app.checkAnswer()"
                                            placeholder="Type conjugation..." autofocus>
-                                    <button class="button button-primary" onclick="app.checkAnswer()" 
-                                            ${!this.testState.userAnswer.trim() ? 'disabled' : ''}>
+                                    <button class="button button-primary" id="check-btn" onclick="app.checkAnswer()">
                                         Check Answer
                                     </button>
                                 ` : `
