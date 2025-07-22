@@ -461,7 +461,7 @@
                 };
 
                 this.checkGitHubConfig();
-                this.loadVerbsFromGitHub();
+                // Removed automatic GitHub loading - user can manually sync when ready
                 this.render();
             }
 
@@ -469,6 +469,7 @@
                 this.github.isConfigured = !!(this.github.token && this.github.username && this.github.repo);
                 if (this.github.isConfigured) {
                     this.currentView = 'menu';
+                    // Don't automatically load from GitHub on startup - let user choose when to sync
                 }
             }
 
@@ -478,9 +479,8 @@
                 localStorage.setItem('github_username', username);
                 localStorage.setItem('github_repo', repo);
                 
-                this.setStatus('GitHub configuration saved!', 'success');
+                this.setStatus('GitHub configuration saved! Click "Sync with GitHub" to load or save your verbs.', 'success');
                 this.currentView = 'menu';
-                await this.loadVerbsFromGitHub();
                 this.render();
             }
 
@@ -746,7 +746,7 @@
                     <div class="container">
                         <div class="header">
                             <h1 class="title">German Verbs</h1>
-                            <p class="subtitle">Synced with GitHub • ${this.verbs.length} verbs</p>
+                            <p class="subtitle">Ready to sync • ${this.verbs.length} verbs</p>
                         </div>
                         
                         ${this.statusMessage ? `<div class="status-message status-${this.statusType}">${this.statusMessage}</div>` : ''}
